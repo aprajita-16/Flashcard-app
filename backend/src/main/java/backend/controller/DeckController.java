@@ -8,20 +8,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174", "http://localhost:3000"})
+@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:3000"})
 @RequestMapping("/decks")
 public class DeckController {
 
     @Autowired
     private DeckRepository deckRepository;
 
-    // Get all decks
     @GetMapping
     public List<Deck> getAllDecks() {
         return deckRepository.findAll();
     }
 
-    // Create a new deck
     @PostMapping
     public Deck createDeck(@RequestBody Deck deck) {
         return deckRepository.save(deck);
